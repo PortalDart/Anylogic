@@ -112,7 +112,7 @@
 				<Variable Class="AuxVariable">
 					<Id>1776074117256</Id>
 					<Name><![CDATA[CO2Vozila]]></Name>
-					<X>290</X><Y>240</Y>
+					<X>290</X><Y>230</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -173,22 +173,6 @@
 					</Properties>
 				</Variable>
 				<Variable Class="StockVariable">
-					<Id>1776682035911</Id>
-					<Name><![CDATA[leto]]></Name>
-					<X>330</X><Y>540</Y>
-					<Label><X>0</X><Y>-20</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Array="false">
-					<EquationStyle>classic</EquationStyle>
-					<Width>20</Width>
-					<Height>20</Height>
-						<InitialValue><![CDATA[1]]></InitialValue>
-						<Color>-4073239</Color>
-					</Properties>
-				</Variable>
-				<Variable Class="StockVariable">
 					<Id>1776682269927</Id>
 					<Name><![CDATA[delezEV]]></Name>
 					<X>290</X><Y>50</Y>
@@ -201,6 +185,22 @@
 					<Width>20</Width>
 					<Height>20</Height>
 						<InitialValue><![CDATA[0.05]]></InitialValue>
+						<Color>-4073239</Color>
+					</Properties>
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1777887839950</Id>
+					<Name><![CDATA[kmLetno]]></Name>
+					<X>290</X><Y>440</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="false">
+					<EquationStyle>classic</EquationStyle>
+					<Width>20</Width>
+					<Height>20</Height>
+						<InitialValue><![CDATA[kmLetnoZacetek]]></InitialValue>
 						<Color>-4073239</Color>
 					</Properties>
 				</Variable>
@@ -283,25 +283,6 @@
 					</Properties>
 				</Variable>
 				<Variable Class="Flow">
-					<Id>1776682037892</Id>
-					<Name><![CDATA[flow]]></Name>
-					<X>130</X><Y>540</Y>
-					<Label><X>0</X><Y>-20</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties TargetId="1776682035911" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[1]]></Formula>
-						<Color>-4073239</Color>
-						<ValveIndex>1</ValveIndex>
-						<Points>
-							<Point><X>0</X><Y>0</Y></Point>
-							<Point><X>100</X><Y>0</Y></Point>
-							<Point><X>200</X><Y>0</Y></Point>
-						</Points>
-					</Properties>
-				</Variable>
-				<Variable Class="Flow">
 					<Id>1776682277603</Id>
 					<Name><![CDATA[flow1]]></Name>
 					<X>80</X><Y>50</Y>
@@ -320,10 +301,29 @@
 						</Points>
 					</Properties>
 				</Variable>
+				<Variable Class="Flow">
+					<Id>1777887844388</Id>
+					<Name><![CDATA[novePoti]]></Name>
+					<X>80</X><Y>440</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TargetId="1777887839950" External="false" Constant="false" Array="false">
+						<Formula><![CDATA[kmLetno * stopnjaNovihPoti]]></Formula>
+						<Color>-4073239</Color>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>100</X><Y>0</Y></Point>
+							<Point><X>210</X><Y>0</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1774866260865</Id>
 					<Name><![CDATA[emisijaNaKm]]></Name>
-					<X>220</X><Y>460</Y>
+					<X>130</X><Y>370</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -346,8 +346,8 @@
 				</Variable>
 				<Variable Class="Parameter">
 					<Id>1774866273375</Id>
-					<Name><![CDATA[kmLetno]]></Name>
-					<X>330</X><Y>460</Y>
+					<Name><![CDATA[kmLetnoZacetek]]></Name>
+					<X>360</X><Y>460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -429,7 +429,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[9]]></Code>
+							<Code><![CDATA[5]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1774867223675</Id>
@@ -443,7 +443,7 @@
 				<Variable Class="Parameter">
 					<Id>1774867531404</Id>
 					<Name><![CDATA[stopnjaNovoRegistriranih]]></Name>
-					<X>130</X><Y>240</Y>
+					<X>80</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -491,7 +491,7 @@
 				<Variable Class="Parameter">
 					<Id>1776682478318</Id>
 					<Name><![CDATA[rastEV]]></Name>
-					<X>0</X><Y>20</Y>
+					<X>80</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -505,6 +505,51 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1776682478316</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1777887975150</Id>
+					<Name><![CDATA[stopnjaNovihPoti]]></Name>
+					<X>90</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.02]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1777887975148</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1777889410211</Id>
+					<Name><![CDATA[zacetneLetneEmisije]]></Name>
+					<X>40</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1777889410209</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -562,10 +607,10 @@
 				<Link SourceId="1774867531404" TargetId="1774866931892" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>50</X><Y>-80</Y></Direction>
+					<Direction><X>100</X><Y>-40</Y></Direction>
 					<Id>1774867555972</Id>
 					<Name><![CDATA[stopnjaNovoRegistriranih - novaRegistracjia]]></Name>
-					<X>130</X><Y>240</Y>
+					<X>80</X><Y>200</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -592,7 +637,7 @@
 				<Link SourceId="1774866819177" TargetId="1776074117256" Polarity="null">
 					<Height>-25.891</Height>
 					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>10</X><Y>80</Y></Direction>
+					<Direction><X>10</X><Y>70</Y></Direction>
 					<Id>1776074124113</Id>
 					<Name><![CDATA[Vozila - CO2Vozila]]></Name>
 					<X>280</X><Y>160</Y>
@@ -607,7 +652,7 @@
 				<Link SourceId="1776682269927" TargetId="1776074117256" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>0</X><Y>190</Y></Direction>
+					<Direction><X>0</X><Y>180</Y></Direction>
 					<Id>1776682352071</Id>
 					<Name><![CDATA[delezEV - CO2Vozila]]></Name>
 					<X>290</X><Y>50</Y>
@@ -622,10 +667,10 @@
 				<Link SourceId="1776682478318" TargetId="1776682277603" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>180</X><Y>30</Y></Direction>
+					<Direction><X>100</X><Y>-30</Y></Direction>
 					<Id>1776682487287</Id>
 					<Name><![CDATA[rastEV - flow1]]></Name>
-					<X>0</X><Y>20</Y>
+					<X>80</X><Y>80</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -652,25 +697,10 @@
 				<Link SourceId="1776074117256" TargetId="1776682885815" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-230</X><Y>15</Y></Direction>
+					<Direction><X>-230</X><Y>25</Y></Direction>
 					<Id>1776682893343</Id>
 					<Name><![CDATA[CO2Vozila - letneEmisije]]></Name>
-					<X>290</X><Y>240</Y>
-					<Label><X>40</X><Y>-50</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color>-11832691</Color>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1774866273375" TargetId="1776682885815" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-270</X><Y>-205</Y></Direction>
-					<Id>1776682909240</Id>
-					<Name><![CDATA[kmLetno - letneEmisije]]></Name>
-					<X>330</X><Y>460</Y>
+					<X>290</X><Y>230</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -682,10 +712,10 @@
 				<Link SourceId="1774866260865" TargetId="1776682885815" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-160</X><Y>-205</Y></Direction>
+					<Direction><X>-70</X><Y>-115</Y></Direction>
 					<Id>1776682917785</Id>
 					<Name><![CDATA[emisijaNaKm - letneEmisije]]></Name>
-					<X>220</X><Y>460</Y>
+					<X>130</X><Y>370</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -709,7 +739,134 @@
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
+				<Link SourceId="1777887975150" TargetId="1777887844388" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>90</X><Y>-40</Y></Direction>
+					<Id>1777887991586</Id>
+					<Name><![CDATA[stopnjaNovihPoti - novePoti]]></Name>
+					<X>90</X><Y>480</Y>
+					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color>-11832691</Color>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1777887839950" TargetId="1777887844388" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-110</X><Y>0</Y></Direction>
+					<Id>1777888091690</Id>
+					<Name><![CDATA[kmLetno - novePoti]]></Name>
+					<X>290</X><Y>440</Y>
+					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color>-11832691</Color>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1774866273375" TargetId="1777887839950" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-70</X><Y>-20</Y></Direction>
+					<Id>1777890302972</Id>
+					<Name><![CDATA[kmLetnoZacetek - kmLetno]]></Name>
+					<X>360</X><Y>460</Y>
+					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color>-11832691</Color>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1777887839950" TargetId="1776682885815" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-230</X><Y>-185</Y></Direction>
+					<Id>1777890709493</Id>
+					<Name><![CDATA[kmLetno - letneEmisije]]></Name>
+					<X>290</X><Y>440</Y>
+					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color>-11832691</Color>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
 			</Dependences>
+			<Events>
+				<Event>
+					<Id>1777888654597</Id>
+					<Name><![CDATA[event]]></Name>
+					<X>390</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="condition" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_YEAR]]></Unit>
+						</Rate>
+						<Id>1777888654595</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1777968000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[letneEmisije <= 0.5 * zacetneLetneEmisije]]></Condition>
+					</Properties>
+					<Action><![CDATA[traceln("🔥 CONDITION MET at time: " + time());
+stop();]]></Action>
+				</Event>
+				<Event>
+					<Id>1777889390336</Id>
+					<Name><![CDATA[event1]]></Name>
+					<X>460</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_YEAR]]></Unit>
+						</Rate>
+						<Id>1777889390334</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1777968000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[zacetneLetneEmisije = letneEmisije]]></Action>
+				</Event>
+			</Events>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1774866221041</Id>
@@ -750,7 +907,7 @@
     			<TimePlot>
 					<Id>1774867686895</Id>
 					<Name><![CDATA[plot]]></Name>
-					<X>550</X><Y>410</Y>
+					<X>320</X><Y>450</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -914,9 +1071,6 @@
 					<ParameterName><![CDATA[emisijaNaKm]]></ParameterName>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[kmLetno]]></ParameterName>
-				</Parameter>
-				<Parameter>
 					<ParameterName><![CDATA[steviloVozil]]></ParameterName>
 				</Parameter>
 				<Parameter>
@@ -933,6 +1087,15 @@
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[rastEV]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[kmLetnoZacetek]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[stopnjaNovihPoti]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[zacetneLetneEmisije]]></ParameterName>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
